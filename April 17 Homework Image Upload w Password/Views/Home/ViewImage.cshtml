@@ -1,0 +1,32 @@
+﻿@model April_17_Homework_Image_Upload_w_Password.Models.ViewImageViewModel
+
+@if (!Model.Show)
+{
+    <div class="row">
+        <div class="col-md-6 offset-md-3 bg-light p-4 rounded shadow">
+            @if(!String.IsNullOrEmpty(Model.Message))
+            {
+                <h3 class="alert-danger">@Model.Message</h3>
+            }
+            <h4>Please enter the password for this image:</h4>
+        <form method="post">
+            <input type="hidden" name="id" value="@Model.Image.Id" />
+            <input type="text" class="form-control" placeholder="Password" name="password" />
+            <br />
+            <button class="btn btn-primary w-100">Submit</button>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8GpFy_uQ3T1Bq_WQtiUN9YPymcH0gvZogoS_eTVpi31ca4d3u8wxauI7l8RuaAoqqzgS9qFNyj6KYY6oP_2CX50bdTINqDm1smScZKWuqMZDMqC9HeSHO4MTfFacxnj8CtsLjUCD7Bt0zNeg0RT3WGk" />
+        </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <img src="/uploads/@Model.Image.FileName" style="width: 800px;" />
+            <br />
+            <h3>Views: @Model.Image.Views</h3>
+        </div>
+    </div>
+}
+
